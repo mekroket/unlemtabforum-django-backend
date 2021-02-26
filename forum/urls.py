@@ -25,6 +25,7 @@ urlpatterns = [
     path("user/",include("user.urls")),
     path("about/",views.about,name="about"),
     path("dashboard/",views.dashboard,name="dashboard"),
+    path("dashboard2/",views.dashboard2,name="dashboard2"),
     path('articles/',include("article.urls")),
     path("user/",include("user.urls")),
     path("news/",views.news,name="news"),

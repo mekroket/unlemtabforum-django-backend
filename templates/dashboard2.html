@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<br><br><br><br><br><br><br>
+<p>
+    {% if request.user.is_authenticated%}
+    {% else %}
+    <br>
+        <div class="alert alert-danger">Bizim hakkımızda daha fazla bilgi alabilmek için Kayıt olmanız gerekmektedir,
+                Zaten Kayıtlı İseniz Lütfen Giriş yapınız
+                </div>
+    {% endif %}
+
+</p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+{% endblock body %}
