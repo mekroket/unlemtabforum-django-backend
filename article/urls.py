@@ -4,5 +4,6 @@ from article import views
 app_name = "article"
 
 urlpatterns = [
-    path("articles/",views.articles,name="articles"),
+    path("dashboard/",views.dashboard,name="dashboard"),
+    path("article/<int:id>",views.detail,name="detail"),
 ]
