@@ -10,10 +10,17 @@ def about(request):
     return render(request,"about.html")
 
 def dashboard(request):
-    articles = Article.objects.filter(author=request.user)
-    context = {
-        "articles":articles
-    }
+    if request.user.is_authenticated == False:
+        return redirect("dashboard2")
+        messages.error(request,"Projelere Erişmek İçin Lütfen Giriş Yapınız")
+        
+    else:
+
+        articles = Article.objects.filter(author=request.user)
+        context = {
+            "articles":articles,
+        }
+    
     return render(request,"dashboard.html",context)
 
 def detail(request,id):
@@ -23,3 +30,6 @@ def detail(request,id):
 
 def news(request):
     return render(request,"news.html")
+
+def dashboard2(request):
+    return render(request,"dashboard2.html")
