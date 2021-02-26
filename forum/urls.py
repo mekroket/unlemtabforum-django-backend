@@ -26,4 +26,5 @@ urlpatterns = [
     path("about/",views.about,name="about"),
     path("dashboard/",views.dashboard,name="dashboard"),
     path('articles/',include("article.urls")),
+    path("user/",include("user.urls")),
 ]

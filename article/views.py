@@ -20,3 +20,4 @@ def detail(request,id):
     article = get_object_or_404(Article,id=id)
     return render(request,"detail.html",{"article":article})
 
+
