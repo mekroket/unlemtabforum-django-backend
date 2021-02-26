@@ -21,3 +21,5 @@ def detail(request,id):
     return render(request,"detail.html",{"article":article})
 
 
+def news(request):
+    return render(request,"news.html")
