@@ -11,19 +11,19 @@
         </div>
         <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
             <div class="pt-4">
-                <h6><span class="fa fa-superpowers text-primary px-md-2"></span>COMPANY LOGO</h6>
+                <h6><span class="fa fa-superpowers text-primary px-md-2"></span></h6>
             </div>
             <div class="mt-3 mt-md-5">
-                <h5>Log in to your account</h5>
+                <h5>Kayıt Olun</h5>
                 <form class="pt-4" method="post">
                     {% csrf_token %}
-                    <div class="d-flex flex-column pb-3"> <label for="email">Email Address</label> {{form.username}}</div>
-                    <div class="d-flex flex-column pb-3"> <label for="password">Password</label> {{form.password}}</div>
+                    <div class="d-flex flex-column pb-3"> <label for="email">E-Mail Adresiniz</label> {{form.username}}</div>
+                    <div class="d-flex flex-column pb-3"> <label for="password">Şifreniz</label> {{form.password}}</div>
                     <div class="d-flex jusity-content-end pb-4">
-                        <div class="ml-auto"> <a href="#" class="text-danger text-decoration-none">Forgot password?</a> </div>
-                    </div> <input type="button" value="Log in" class="btn btn-primary btn-block mb-3"> <button class="btn btn-block bg-white border border-primary rounded "><span class="fa fa-facebook-official text-primary px-2"></span>Log In with Facebook</button>
+                        <div class="ml-auto"> <a href="#" class="text-danger text-decoration-none">Şifrenizi mi Unuttunuz?</a> </div>
+                    </div> <input type="button" value="Kayıt Ol" class="btn btn-primary btn-block mb-3"> <button class="btn btn-block bg-white border border-primary rounded "><span class="fa fa-facebook-official text-primary px-2"></span>Facebook İle Kayıt Olun</button>
                     <div class="register mt-5">
-                        <p>Don't have an account? <a href="#">Create an accounttt</a></p>
+                        <p>Hesabınız Yok mu? <a href="#">Hesap Oluştur</a></p>
                     </div>
                 </form>
             </div>
