@@ -2,18 +2,78 @@
 {% load static %}
 
 {% block body %}
-<br><br><br><br><br><br><br>
-<p>
-    {% if request.user.is_authenticated%}
-    {% else %}
-    <br>
-        <div class="alert alert-danger">Bizim hakkımızda daha fazla bilgi alabilmek için Kayıt olmanız gerekmektedir,
-                Zaten Kayıtlı İseniz Lütfen Giriş yapınız
+
+<header class="masthead text-center text-white" style="color:white;">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0" style="color:white;">!TAB FORUM</h1>
+        <h2 class="masthead-subheading mb-0">Kodların Olimposu</h2>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+
+
+<div class="alert alert-danger">Bir Konu veya Sohbet Başlatmak İçin Lütfen  <a href="/user/register">Kayıt Olunuz</a> 
+                Zaten Kayıtlı İseniz Lütfen <a href="/user/login">Giriş yapınız</a> 
+</div>
+{% if articles %}
+
+<div class="container-fluid mt-100">
+    <div class="d-flex flex-wrap justify-content-between">
+        <div class="col-12 col-md-3 p-0 mb-3"> <input type="text" class="form-control" placeholder="Ara..."> </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header pl-0 pr-0">
+            <div class="row no-gutters w-100 align-items-center">
+                <div class="col ml-3">Gündemdekiler</div>
+                <div class="col-4 text-muted">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-4">Sıra</div>
+                        <div class="col-8">Tarih</div>
+                    </div>
                 </div>
-    {% endif %}
+            </div>
+        </div>
+        {% for article in articles  %}
+        <div class="card-body py-3">
+            <div class="row no-gutters align-items-center">
+            
+                <div class="col"> <a href="/articles/article/{{article.id}}" class="text-big" data-abc="true">{{article.title}}</a><span class="badge badge-success align-text-bottom ml-1" >Güncel</span>
+                    <div class="text-muted small mt-1">{{article.created_date}} &nbsp;·&nbsp; <a href="javascript:void(0)" class="text-muted" data-abc="true">{{article.author}}</a></div>
+                </div>
+                <div class="d-none d-md-block col-4">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-4">{{article.id}}</div>
+                        <div class="media col-8 align-items-center"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/2.jpg" alt="" class="d-block ui-w-30 rounded-circle">
+                            <div class="media-body flex-truncate ml-2">
+                                <div class="line-height-1 text-truncate">{{article.created_date}}</div> <a href="javascript:void(0)" class="text-muted small text-truncate" data-abc="true">{{article.author}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="m-0">
+        
+        {% endfor %}
+        <br><br>
 
-</p>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+        <nav>
+        <ul class="pagination mb-5">
+            <li class="page-item disabled"><a class="page-link" href="javascript:void(0)" data-abc="true">«</a></li>
+            <li class="page-item active"><a class="page-link" href="javascript:void(0)" data-abc="true">1</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0)" data-abc="true">2</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0)" data-abc="true">3</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0)" data-abc="true">»</a></li>
+        </ul>
+    </nav>
+{% else %}
+<div class="alert alert-danger">Henüz Bir Projemiz Bulunmuyor Beklemede Kalın</div>
+{% endif %}
+<br><br><br><br><br><br><br><br>
 
 {% endblock body %}

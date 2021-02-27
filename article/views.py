@@ -33,3 +33,6 @@ def news(request):
 
 def dashboard2(request):
     return render(request,"dashboard2.html")
+
+def addarticle(request):
+    return render(request,"addarticle.html")

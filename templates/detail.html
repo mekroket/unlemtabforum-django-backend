@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-<br><br><br>
-
-<!-- Page Content -->
-  <div class="container">
+<header class="masthead text-center text-white" style="color:white;">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0" style="color:white;">!TAB FORUM</h1>
+        <h2 class="masthead-subheading mb-0">Kodların Olimposu</h2>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+  
+<div class="container">
 
     <div class="row">
 
@@ -12,13 +22,12 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4" style="color:rgb(19, 18, 18);">{{article.title}}</h1>   
-        
+        <h1 class="mt-4">{{article.title}}</h1>
 
         <!-- Author -->
-        <p class="lead" style="color:rgb(0, 0, 0);">
+        <p class="lead">
           by
-          {{article.author}}
+          <a href="#">{{article.author}}</a>
         </p>
 
         <hr>
@@ -34,13 +43,15 @@
         <hr>
 
         <!-- Post Content -->
-        <p>Konu;</p>
         <p class="lead">{{article.content}}</p>
-
-        
 
         <hr>
 
+        
+
+        
+
+        
         <!-- Comments Form -->
         <div class="card my-4">
           <h5 class="card-header">Yorum Yap</h5>
@@ -49,7 +60,7 @@
               <div class="form-group">
                 <textarea class="form-control" rows="3"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Gönder</button>
+              <button type="submit" class="btn btn-primary">Yorumu Gönder</button>
             </form>
           </div>
         </div>
@@ -96,12 +107,12 @@
 
         <!-- Search Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Ara</h5>
+          <h5 class="card-header">Arama Yap</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Keşfet...">
+              <input type="text" class="form-control" placeholder="Ara...">
               <span class="input-group-append">
-                <button class="btn btn-secondary" type="button">Ara!</button>
+                <button class="btn btn-secondary" type="button">Ara</button>
               </span>
             </div>
           </div>
@@ -109,7 +120,7 @@
 
         <!-- Categories Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Katagoriler</h5>
+          <h5 class="card-header">Kategoriler</h5>
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
@@ -121,7 +132,7 @@
                     <a href="#">HTML</a>
                   </li>
                   <li>
-                    <a href="#">PYTHON</a>
+                    <a href="#">Python</a>
                   </li>
                 </ul>
               </div>
@@ -133,22 +144,19 @@
                   <li>
                     <a href="#">CSS</a>
                   </li>
-                  
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Artan Katagoriler</h5>
-          <div class="card-body">
-            Forumdaki güncelliğinze göre katagorileri sıralamasının üzerinde çalısıyoruz.
-          </div>
-        </div>
+        
 
       </div>
 
     </div>
+    <!-- /.row -->
+
+  </div>
+
 {% endblock body %}

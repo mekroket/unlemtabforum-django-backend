@@ -29,4 +29,5 @@ urlpatterns = [
     path('articles/',include("article.urls")),
     path("user/",include("user.urls")),
     path("news/",views.news,name="news"),
+    path("addarticle/",views.addarticle,name="addarticle"),
 ]
