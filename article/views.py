@@ -1,5 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
 from .models import Article
+from .forms import ArticleForm
+from django.contrib import messages
 # Create your views here.
 
 
@@ -36,3 +38,19 @@ def dashboard2(request):
 
 def addarticle(request):
     return render(request,"addarticle.html")
+
+def articles(request):
+    articles = Article.objects.all()
+    return render(request,"dashboard2.html",{"articles":articles})
+
+def addarticle(request):
+    form = ArticleForm(request.POST or None)
+    if form.is_valid():
+        article = form.save(commit=False)
+        article.author = request.user
+        article.save()
+
+        messages.success(request,"Makale Başarıyla Oluşturuldu")
+        return redirect("dashboard")
+
+    return render(request,"addarticle.html",{"form":form})

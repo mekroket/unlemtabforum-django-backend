@@ -18,6 +18,9 @@ from django.urls import path,include
 #MODELS
 from article import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,3 +34,6 @@ urlpatterns = [
     path("news/",views.news,name="news"),
     path("addarticle/",views.addarticle,name="addarticle"),
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

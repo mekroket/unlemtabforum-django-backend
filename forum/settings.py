@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "article",
     "user",
+    "ckeditor",
+    'django_cleanup',
+    "article",
+    
 ]
 
 MIDDLEWARE = [
@@ -64,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.media",
             ],
         },
     },
@@ -132,3 +136,25 @@ STATICFILES_DIRS = [
 #tek klasör yapma
 STATIC_ROOT =os.path.join(BASE_DIR, "staticfiles")
 #---> python manage.py collectstatic
+
+
+#çakışmaması için ckeditör
+CKEDITOR_CONFIGS = {
+    "default": {
+        "removePlugins": "stylesheetparser",
+        "allowContent" : True,  #bunu yapmamız gerekiyor
+        "width" : "100%"
+    }
+}
+
+#YÜKLEME YAPMA
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+
+
+
+
+
