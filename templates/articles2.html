@@ -1,6 +1,8 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
+
 {% block body %}
+
 <header class="masthead text-center text-white" style="color:white;">
     <div class="masthead-content">
       <div class="container">
@@ -14,9 +16,10 @@
     <div class="bg-circle-4 bg-circle"></div>
   </header>
 
-<div class="alert alert-warning">Hoşgeldiniz, <small>{{request.user.username}}</small></div>
-<a href="/addarticle"><button class="btn btn-primary" style="margin-left:1%; margin-bottom:-3%;"> Konu Başlat</button></a>
 
+<div class="alert alert-danger">Bir Konu veya Sohbet Başlatmak İçin Lütfen  <a href="/user/register">Kayıt Olunuz</a> 
+                Zaten Kayıtlı İseniz Lütfen <a href="/user/login">Giriş yapınız</a> 
+</div>
 {% if articles %}
 
 <div class="container-fluid mt-100">
@@ -45,7 +48,7 @@
                 <div class="d-none d-md-block col-4">
                     <div class="row no-gutters align-items-center">
                         <div class="col-4">{{article.id}}</div>
-                        <div class="media col-8 align-items-center"> <img src="{% static 'img/user.png'%}" alt="" class="d-block ui-w-30 rounded-circle">
+                        <div class="media col-8 align-items-center"> <img src="{%static 'img/tab.jpg'%}" alt="" class="d-block ui-w-30 rounded-circle">
                             <div class="media-body flex-truncate ml-2">
                                 <div class="line-height-1 text-truncate">{{article.created_date}}</div> <a href="javascript:void(0)" class="text-muted small text-truncate" data-abc="true">{{article.author}}</a>
                             </div>

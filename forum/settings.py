@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "ckeditor",
     'django_cleanup',
     "article",
+    'crispy_forms',
     
 ]
 
@@ -122,32 +123,24 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_URL = '/static/'
-
-
 import os
-#static dosyasını ayrı yazma
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 
-#tek klasör yapma
-STATIC_ROOT =os.path.join(BASE_DIR, "staticfiles")
-#---> python manage.py collectstatic
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
-#çakışmaması için ckeditör
 CKEDITOR_CONFIGS = {
     "default": {
         "removePlugins": "stylesheetparser",
-        "allowContent" : True,  #bunu yapmamız gerekiyor
-        "width" : "100%"
+        "allowedContent" : True,
+        "width" : "100%",
     }
 }
 
-#YÜKLEME YAPMA
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

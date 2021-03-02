@@ -26,7 +26,7 @@ def register(request):
         login(request,newUser)
         messages.info(request,"Başarıyla Kayıt Olundu")
 
-        return redirect("dashboard")
+        return redirect("/articles")
     context = {
         "form": form
     }
@@ -55,7 +55,7 @@ def loginUser(request):
 
         messages.success(request,"Başarıyla Giriş Yaptınız")
         login(request,user)
-        return redirect("dashboard")
+        return redirect("/articles")
     return render(request,"login.html",context)
 
 
@@ -67,4 +67,4 @@ def loginUser(request):
 def logoutUser(request):
     logout(request)
     messages.success(request,"Başarıyla Çıkış Yaptınız")
-    return redirect("dashboard")
+    return redirect("/articles")

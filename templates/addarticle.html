@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% block body %}
-
+{% load static %}
 <br><br><br>
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <h3>Makale Ekle</h3>
     <hr>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        <div class="alert alert-danger">Beta Sürümünde Olduğumuz İçin Resim Eklemeniz Şarttır!</div>
         {{form.media}}
         {{form.as_p}}
+      
     <button type="submit" class="btn btn-danger">EKLE</button>
 </form>
   

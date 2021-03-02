@@ -38,69 +38,62 @@
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <img class="img-fluid rounded" src="{{article.article_image.url}}" alt="">
 
         <hr>
 
         <!-- Post Content -->
         <p class="lead">{{article.content}}</p>
-
+        <br><br><br>
+        <hr>
+        <h4>Yorumlar</h4>
         <hr>
 
         
 
         
+      {% if comments %}
+      {% for comment in comments  %}
+      <div class="media mb-4">
+          <img class="d-flex mr-3 rounded-circle" src="{%static 'img/tab.jpg'%}" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">{{comment.comment_author}}</h5>
+            {{comment.comment_date}}
+            {{comment.comment_content}}
+          </div>
+        </div>
+      {% endfor %}
+      
 
+      {% else %}
+      <div class="alert alert-danger">Bu makaleye herhangi bir yorum yazılmamış,İlk yorumu yapan siz olun</div>
+      {% endif %}
         
         <!-- Comments Form -->
         <div class="card my-4">
-          <h5 class="card-header">Yorum Yap</h5>
+          <h5 class="card-header">Yorum Ekle:</h5>
           <div class="card-body">
-            <form>
+            <form method = "post" action = "{% url 'article:comment' article.id %}">
+              {% csrf_token %}
               <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
+                  <label for="formGroupExampleInput">İsim</label>
+                  <input name = "comment_author" type="text" class="form-control" id="formGroupExampleInput" placeholder="İsminizi girin">
+                </div>
+              <div class="form-group">
+                  <label for="formGroupExampleInput">Yorum</label>
+                <textarea name = "comment_content" class="form-control" rows="3"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Yorumu Gönder</button>
+              <button type="submit" class="btn btn-danger">Ekle</button>
             </form>
           </div>
         </div>
-
-        <!-- Single Comment -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
         </div>
-
-        <!-- Comment with nested comments -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+        
       </div>
+
+        
+
+        
 
       <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
