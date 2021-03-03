@@ -70,6 +70,10 @@ def addarticle(request):
 def articles2(request):
     if request.user.is_authenticated == False:
         articles = Article.objects.all()
+        keyword = request.GET.get("keyword")
+        if keyword:
+            articles = Article.objects.filter(title__contains = keyword)
+            return render(request,"articles.html",{"articles":articles})
         return render(request,"articles2.html",{"articles":articles})
     return render(request,"articles2.html")
 
@@ -81,6 +85,11 @@ def articles(request):
         
     if request.user.is_authenticated == True:
         articles = Article.objects.all()
+        keyword = request.GET.get("keyword")
+        if keyword:
+            articles = Article.objects.filter(title__contains = keyword)
+            return render(request,"articles.html",{"articles":articles})
+
         return render(request,"articles.html",{"articles":articles})
 
     else:

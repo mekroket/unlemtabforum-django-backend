@@ -21,7 +21,11 @@
 
 <div class="container-fluid mt-100">
     <div class="d-flex flex-wrap justify-content-between">
-        <div class="col-12 col-md-3 p-0 mb-3"> <input type="text" class="form-control" placeholder="Ara..."> </div>
+        <form>
+                 {% csrf_token %} 
+                <input type="text" name = "keyword" class="input-sm" maxlength="64" placeholder="Ara...">
+              <button type="submit" class="btn btn-danger">Ara</button>
+            </form>>
     </div>
     <div class="card mb-3">
         <div class="card-header pl-0 pr-0">
@@ -69,7 +73,8 @@
         </ul>
     </nav>
 {% else %}
-<div class="alert alert-danger">Henüz Bir Projemiz Bulunmuyor Beklemede Kalın</div>
+<br><br><br><br><br>
+<div class="alert alert-danger">Böyle Bir Makale Bulunamadı</div>
 {% endif %}
 <br><br><br><br><br><br><br><br>
 
