@@ -66,7 +66,7 @@ def addarticle(request):
 
 
     
-@login_required(login_url="user:login")
+
 def articles2(request):
     if request.user.is_authenticated == False:
         articles = Article.objects.all()
@@ -74,7 +74,6 @@ def articles2(request):
     return render(request,"articles2.html")
 
 
-@login_required(login_url="user:login")
 def articles(request):
     if request.user.is_authenticated == False:
         return redirect("/articles/articles2")
