@@ -19,6 +19,9 @@
             <a class="nav-link" href="/about">Hakkımızda</a>
           </li>
         {% if  request.user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="/articles/dashboard">Makale Yönetimi</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/user/logout">Çıkış Yap</a>
           </li>

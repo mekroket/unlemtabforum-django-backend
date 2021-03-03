@@ -91,3 +91,10 @@ def articles(request):
         }
     
     return render(request,"articles.html",context)
+@login_required(login_url = "user:login")
+def dashboard(request):
+    articles = Article.objects.filter(author=request.user)
+    context = {
+        "articles":articles
+    }
+    return render(request,"dashboard.html",context)

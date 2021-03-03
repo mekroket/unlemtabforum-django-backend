@@ -6,8 +6,8 @@ from ckeditor.fields import RichTextField
 #makale oluşturma
 class Article(models.Model):
     author = models.ForeignKey("auth.User",on_delete = models.CASCADE,verbose_name = "Yazar ")
-    title = models.CharField(max_length = 50,verbose_name = "Başlık")
-    content = RichTextField()
+    title = models.CharField(max_length = 50,verbose_name = "Başlık  ")
+    content = RichTextField(verbose_name="İçerik ")
     created_date = models.DateTimeField(auto_now_add=True,verbose_name="Oluşturulma Tarihi")
     article_image = models.FileField(blank = True,null = True,verbose_name="Makaleye Fotoğraf Ekleyin")
 
