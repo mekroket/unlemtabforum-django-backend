@@ -163,8 +163,8 @@
                                                 <td><a href="{% url 'article:detail' article.id %}">{{article.title}}</a></td>
                                                 <td>{{article.author.username}}</td>
                                                 <td>{{article.created_date}}</td>
-                                                <td><a href="#" class = "btn btn-danger">Güncelle</a></td>
-                                                <td><a href="#" class = "btn btn-danger">Sil</a></td>
+                                                <td><a href="/articles/update/{{article.id}}" class = "btn btn-danger">Güncelle</a></td>
+                                                <td><a href="/articles/delete/{{article.id}}" class = "btn btn-danger">Sil</a></td>
                                             </tr>
                                                {% endfor %}
                                         </tbody>

@@ -91,6 +91,8 @@ def articles(request):
         }
     
     return render(request,"articles.html",context)
+
+
 @login_required(login_url = "user:login")
 def dashboard(request):
     articles = Article.objects.filter(author=request.user)
@@ -98,3 +100,23 @@ def dashboard(request):
         "articles":articles
     }
     return render(request,"dashboard.html",context)
+
+@login_required(login_url = "user:login")
+def update(request,id):
+    article = get_object_or_404(Article, id = id)
+    form = ArticleForm(request.POST or None, request.FILES,instance=article)
+    if form.is_valid():
+        article = form.save(commit=False)
+
+        article.author = request.user
+        article.save()
+        messages.success(request,"Makale Başarıyla Güncellendi")
+        return redirect("articles/dashboard")
+    return render(request,"update.html", {"form":form})
+
+def delete(request,id):
+    article = get_object_or_404(Article,id = id)
+    article.delete()
+    messages.success(request,"Makaleniz Başarıyla Silindi")
+    return redirect("/articles/dashboard")
+    
