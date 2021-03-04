@@ -15,12 +15,22 @@ def index(request):
 def about(request):
     return render(request,"about.html")
 
+
+"""
 def users(request):
+    resim = request.FILES or None
+    if request.user.is_authenticated == True:
+        messages.success(request,"Makale başarıyla oluşturuldu")
+        return redirect("/users")
+    return render(request,"users.html",{"resim":resim})
     articles = Article.objects.filter(author=request.user)
     context = {
         "articles":articles
     }
     return render(request,"users.html",context)
+"""
+
+
 
 
 
