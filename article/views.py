@@ -16,7 +16,11 @@ def about(request):
     return render(request,"about.html")
 
 def users(request):
-    return render(request,"users.html")
+    articles = Article.objects.filter(author=request.user)
+    context = {
+        "articles":articles
+    }
+    return render(request,"users.html",context)
 
 
 
