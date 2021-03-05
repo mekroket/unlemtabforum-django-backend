@@ -2,14 +2,159 @@
 {% load static %}
 
 {% block body %}
-<br><br><br>
+
+                    
+<br><br>
+<div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">İçerik</div>
+                            <a class="nav-link" href="/articles/dashboard">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Makale  Yönetim Paneli
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Konu Başlat</div>
+                            <a class="nav-link collapsed" href="/articles/addarticle" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Makale Ekle
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Profil</div>
+                            <a class="nav-link collapsed" href="/users" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Profil
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html"></a>
+                                    <a class="nav-link" href="layout-sidenav-light.html"></a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading"></div>
+                            <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Yapım : </div>
+                        OğuzKaanEkin
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Makale Yönetimi</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Makaleler</li>
+                        </ol>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">Python</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">Güncellemeler Devam Etmektedir</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">JS</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">Güncellemeler Devam Etmektedir</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">HTML</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">Güncellemeler Devam Etmektedir</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">CSS</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">Güncellemeler Devam Etmektedir</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area mr-1"></i>
+                                        Kullanıcı : 
+                                    </div>
+                                    <div class="card-body">Hoşgeldiniz, <small style="color:red;">{{request.user.username}}</small><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar mr-1"></i>
+                                        Oturum : 
+                                    </div>
+                                    <div class="card-body">Oturum Açıldı<canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                <br><br><br>
 <div class="container">
     <div class="row">
         <div class="col-lg-3 left">
             <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center"> </div>
             <div class="box mb-3 shadow-sm rounded bg-white profile-box text-center">
                 <div class="p-5">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-fluid" alt="Responsive image" />
+                    <img src="{{request.user.customer.profile.url}}" class="img-fluid profile" alt="Responsive image" />
                 </div>
                 <div class="p-3 border-top border-bottom">
                     <h5 class="font-weight-bold text-dark mb-1 mt-0">{{request.user.username}}</h5>
@@ -21,8 +166,8 @@
                         <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">Aktif</p>
                     </div>
                     <div class="d-flex align-items-top">
-                        <p class="mb-0 text-muted">Applicant Rank</p>
-                        <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">25</p>
+                        <p class="mb-0 text-muted">Derece</p>
+                        <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">1</p>
                     </div>
                 </div>
             </div>
@@ -30,16 +175,20 @@
         <div class="col-lg-9 right">
             <div class="box shadow-sm rounded bg-white mb-3">
                 <div class="box-title border-bottom p-3">
-                    <h6 class="m-0">Kullandığı Konular</h6>
+                    <h6 class="m-0">Profili Düzenle</h6>
                 </div>
                 <div class="box-body p-0">
                     <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header">
                         <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
+                            
                         </div>
                         <div class="font-weight-bold mr-3">
-                            <div class="text-truncate">DAILY RUNDOWN: WEDNESDAY</div>
-                            <div class="small">Income tax sops on the cards, The bias in VC funding, and other top news for you</div>
+                            <div class="text-truncate"></div>
+                            <form method="POST" enctype = multipart/form-data>
+                                {% csrf_token %}
+                                {{form.as_p}}
+                            </form>
+                            <div class="small"></div>
                         </div>
                         <span class="ml-auto mb-auto">
                             <div class="btn-group">
@@ -54,25 +203,7 @@
                             <br />
                             <div class="text-right text-muted pt-1">3d</div>
                         </span>
-                    </div>
-                    <div class="p-3 d-flex align-items-center osahan-post-header">
-                        <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                        </div>
-                        <div class="font-weight-bold mr-3">
-                            <div class="mb-2">We found a job at askbootstrap Ltd that you may be interested in Vivamus imperdiet venenatis est...</div>
-                            <button type="button" class="btn btn-outline-success btn-sm">View Jobs</button>
-                        </div>
-                        <span class="ml-auto mb-auto">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="mdi mdi-dots-vertical"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <button class="dropdown-item" type="button"><i class="mdi mdi-delete"></i> Delete</button>
-                                    <button class="dropdown-item" type="button"><i class="mdi mdi-close"></i> Turn Off</button>
-                                </div>
-                            </div>
+                    
                             <br />
                             <div class="text-right text-muted pt-1">4d</div>
                         </span>
@@ -90,7 +221,7 @@
                 </div>
                 <div class="box-body p-0">
                     <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
-                        <div class="dropdown-list-image mr-3 d-flex align-items-center bg-danger justify-content-center rounded-circle text-white">DRM</div>
+                        <div class="dropdown-list-image mr-3 d-flex align-items-center bg-danger justify-content-center rounded-circle text-white"><img src="{{request.user.customer.profile.url}}"  class="img-fluid profile" alt=""></div>
                         <div class="font-weight-bold mr-3">
                             <div class="text-truncate">{{article.title}}</div>
                             <div class="small">{{article.author}}</div>
@@ -115,13 +246,7 @@
                     <div class="alert alert-danger">Böyle Bir Makale Bulunamadı</div>
                     {% endif %}
                     <br><br><br>
-                    <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="alert alert-danger">Beta Sürümünde Olduğumuz İçin Resim Eklemeniz Şarttır!</div>
-                            
-                            {{form.as_p}}
-                            <button type="submit" class="btn btn-danger">Makaleyi Oluştur</button>
-                    </form>
+                </main>               
 
 
 

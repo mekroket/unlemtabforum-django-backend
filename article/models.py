@@ -1,6 +1,7 @@
 from django.db import models
 #ck editör
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 # Create your models here.
 
 #makale oluşturma
@@ -14,6 +15,24 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+
+
+#profil kısmı
+class Customer(models.Model):
+    user = models.OneToOneField(User,null = True,on_delete=models.CASCADE)
+    name = models.CharField(max_length=40,null=True,verbose_name="Adınız ve Soyadınız")
+    email = models.CharField(max_length=200,null=True,verbose_name="E-posta")
+    date_created = models.DateTimeField(auto_now_add=True,null=True)
+    profile = models.ImageField(null = True,blank = True,verbose_name="Profil Fotoğrafınız")
+
+    def __str__(self):
+        return self.name
+    
+
+
+
+
+#yorum ekleme
 class Comment(models.Model):
     article = models.ForeignKey(Article,on_delete=models.CASCADE,verbose_name="Makale",related_name="comments")
     comment_author = models.CharField(max_length=50,verbose_name="İsim")

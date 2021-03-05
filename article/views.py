@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
-from .models import Article,Comment
-from .forms import ArticleForm
+from .models import Article,Comment,Customer
+from .forms import ArticleForm,CustomerForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -16,19 +16,9 @@ def about(request):
     return render(request,"about.html")
 
 
-"""
-def users(request):
-    resim = request.FILES or None
-    if request.user.is_authenticated == True:
-        messages.success(request,"Makale başarıyla oluşturuldu")
-        return redirect("/users")
-    return render(request,"users.html",{"resim":resim})
-    articles = Article.objects.filter(author=request.user)
-    context = {
-        "articles":articles
-    }
-    return render(request,"users.html",context)
-"""
+
+
+
 
 
 
@@ -145,4 +135,22 @@ def delete(request,id):
     article.delete()
     messages.success(request,"Makaleniz Başarıyla Silindi")
     return redirect("/articles/dashboard")
+
+@login_required(login_url = "user:login")
+def users(request):
+    articles = Article.objects.filter(author=request.user)
+    customer = request.user.customer
+    form = CustomerForm(instance=customer)
+    if request.method =="POST":
+        form = CustomerForm(request.POST,request.FILES,instance = customer)
+        if form.is_valid():
+            form.save()
+
+    
+    context = {
+        "form":form,
+        "articles":articles,
+    }
+    return render(request,"users.html",context)
+    return render(request,"users.html",context)
     
