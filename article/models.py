@@ -2,6 +2,7 @@ from django.db import models
 #ck editör
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+
 # Create your models here.
 
 #makale oluşturma
@@ -23,7 +24,7 @@ class Customer(models.Model):
     name = models.CharField(max_length=40,null=True,verbose_name="Adınız ve Soyadınız")
     email = models.CharField(max_length=200,null=True,verbose_name="E-posta")
     date_created = models.DateTimeField(auto_now_add=True,null=True)
-    profile = models.ImageField( default="{{static 'img/user.png'}}",null = True,blank = True,verbose_name="Profil Fotoğrafınız")
+    profile = models.ImageField(default="user.png",null = True,blank = True,verbose_name="Profil Fotoğrafınız")
 
     def __str__(self):
         return self.name

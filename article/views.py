@@ -152,5 +152,4 @@ def users(request):
         "articles":articles,
     }
     return render(request,"users.html",context)
-    return render(request,"users.html",context)
     
