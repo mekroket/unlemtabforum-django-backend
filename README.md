@@ -4,7 +4,7 @@ Bu proje, Django ve SQLite kullanılarak geliştirilmiş bir forum sitesi uygula
 
 ## Kurulum ve Çalıştırma Adımları
 
-### 1. Projeyi Klonlayın ve Bağımlılıkları Yükleyin
+### 1. Projeyi Klonlayın ve Bağımlılıkları Yükleyin.
 
 ```bash
 git clone https://github.com/mekroket/unlemtabforum-django-backend.git
